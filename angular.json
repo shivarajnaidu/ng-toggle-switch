@@ -121,6 +121,46 @@
           }
         }
       }
+    },
+    "ng-toggle-switch": {
+      "root": "projects/ng-toggle-switch",
+      "sourceRoot": "projects/ng-toggle-switch/src",
+      "projectType": "library",
+      "prefix": "ng",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ng-toggle-switch/tsconfig.lib.json",
+            "project": "projects/ng-toggle-switch/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/ng-toggle-switch/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-toggle-switch/src/test.ts",
+            "tsConfig": "projects/ng-toggle-switch/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-toggle-switch/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng-toggle-switch/tsconfig.lib.json",
+              "projects/ng-toggle-switch/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ng-toggle-switch-app"
